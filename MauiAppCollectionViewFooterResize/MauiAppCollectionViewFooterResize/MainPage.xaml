@@ -7,7 +7,6 @@
     x:DataType="local:ViewModel">
 
     <CollectionView
-        Grid.Row="1"
         ItemsSource="{Binding ItemList}">
 
         <CollectionView.Header>
