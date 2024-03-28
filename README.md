@@ -12,8 +12,8 @@ VirtualListEmptyViewOverlap
 
 ---
 
-CollectionViewPerformanceReproMaui
+CollectionViewPerformanceMaui
 
-CollectionViewPerformanceReproXamarin
+CollectionViewPerformanceXamarin
 
 [Issue to be created]
