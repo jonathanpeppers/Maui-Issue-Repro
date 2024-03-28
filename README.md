@@ -9,3 +9,11 @@ MauiAppCollectionViewFooterResize
 VirtualListEmptyViewOverlap
 
 [EmptyView overlaps with GlobalHeader, GlobalFooter and Content instead of going between GlobalHeader and GlobalFooter](https://github.com/Redth/Maui.VirtualListView/issues/31)
+
+---
+
+CollectionViewPerformanceReproMaui
+
+CollectionViewPerformanceReproXamarin
+
+[Issue to be created]
