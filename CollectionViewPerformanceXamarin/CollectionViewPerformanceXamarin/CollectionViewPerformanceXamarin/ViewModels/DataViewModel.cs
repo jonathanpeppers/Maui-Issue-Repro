@@ -12,23 +12,23 @@ namespace CollectionViewPerformanceXamarin.ViewModels
 {
 	public class MyDataTemplateSelector : DataTemplateSelector
 	{
-		public DataTemplate? Card { get; set; }
+		public DataTemplate Card { get; set; }
 
-		public DataTemplate? CardWithShadow { get; set; }
+		public DataTemplate CardWithShadow { get; set; }
 
-		public DataTemplate? CardWithCornerRadius { get; set; }
+		public DataTemplate CardWithCornerRadius { get; set; }
 
-		public DataTemplate? CardWithBindableLayout { get; set; }
+		public DataTemplate CardWithBindableLayout { get; set; }
 
-		public DataTemplate? CardWithTapGesture { get; set; }
+		public DataTemplate CardWithTapGesture { get; set; }
 
-		public DataTemplate? CardWithIsVisible { get; set; }
+		public DataTemplate CardWithGrid { get; set; }
 
-		public DataTemplate? CardWithGrid { get; set; }
+		public DataTemplate CardWithTheLot { get; set; }
 
-		public DataTemplate? CardWithTheLot { get; set; }
+        public DataTemplate? CardWithComplexContent { get; set; }
 
-		protected override DataTemplate? OnSelectTemplate(object item, BindableObject container)
+        protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
 		{
 			return ((Data)item).Template switch
 			{
@@ -37,10 +37,10 @@ namespace CollectionViewPerformanceXamarin.ViewModels
 				Template.CardWithCornerRadius => this.CardWithCornerRadius,
 				Template.CardWithBindableLayout => this.CardWithBindableLayout,
 				Template.CardWithTapGesture => this.CardWithTapGesture,
-				Template.CardWithIsVisible => this.CardWithIsVisible,
 				Template.CardWithGrid => this.CardWithGrid,
 				Template.CardWithTheLot => this.CardWithTheLot,
-				_ => null
+                Template.CardWithComplexContent => this.CardWithComplexContent,
+                _ => null
 			};
 		}
 	}

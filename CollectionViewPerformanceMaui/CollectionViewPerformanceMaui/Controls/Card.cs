@@ -12,7 +12,7 @@ namespace CollectionViewPerformanceMaui.Controls
 			this.StrokeThickness = 0;
 		}
 
-		public static readonly BindableProperty HasShadowProperty = BindableProperty.Create(nameof(HasShadow), typeof(bool), typeof(Label), false, BindingMode.OneTime, propertyChanged: (bindable, oldValue, newValue) =>
+		public static readonly BindableProperty HasShadowProperty = BindableProperty.Create(nameof(HasShadow), typeof(bool), typeof(Card), false, BindingMode.OneTime, propertyChanged: (bindable, oldValue, newValue) =>
 		{
 			if ((bool)newValue)
 			{
@@ -26,7 +26,7 @@ namespace CollectionViewPerformanceMaui.Controls
 			}
 		});
 
-		public static readonly BindableProperty HasCornerRadiusProperty = BindableProperty.Create(nameof(HasCornerRadius), typeof(bool), typeof(Label), false, BindingMode.OneTime, propertyChanged: (bindable, oldValue, newValue) =>
+		public static readonly BindableProperty HasCornerRadiusProperty = BindableProperty.Create(nameof(HasCornerRadius), typeof(bool), typeof(Card), false, BindingMode.OneTime, propertyChanged: (bindable, oldValue, newValue) =>
 		{
 			if ((bool)newValue)
 			{
@@ -37,7 +37,9 @@ namespace CollectionViewPerformanceMaui.Controls
 			}
 		});
 
-		public bool HasShadow
+        public static readonly BindableProperty HasElevationProperty = BindableProperty.Create(nameof(HasElevation), typeof(bool), typeof(Card), false, BindingMode.OneTime);
+
+        public bool HasShadow
 		{
 			get => (bool)GetValue(HasShadowProperty);
 			set => SetValue(HasShadowProperty, value);
@@ -48,5 +50,11 @@ namespace CollectionViewPerformanceMaui.Controls
 			get => (bool)GetValue(HasCornerRadiusProperty);
 			set => SetValue(HasCornerRadiusProperty, value);
 		}
-	}
+
+        public bool HasElevation
+        {
+            get => (bool)GetValue(HasElevationProperty);
+            set => SetValue(HasElevationProperty, value);
+        }
+    }
 }

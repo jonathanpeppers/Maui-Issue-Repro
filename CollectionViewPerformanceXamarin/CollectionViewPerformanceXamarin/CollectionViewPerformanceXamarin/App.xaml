@@ -11,6 +11,11 @@
             <Style TargetType="StackLayout">
                 <Setter Property="Spacing" Value="0" />
             </Style>
+            
+            <Style TargetType="Frame">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
 
         </ResourceDictionary>
         

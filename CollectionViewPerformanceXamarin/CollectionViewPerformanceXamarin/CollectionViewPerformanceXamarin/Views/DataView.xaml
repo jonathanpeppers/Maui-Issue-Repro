@@ -38,17 +38,17 @@
                     <StackLayout>
 
                         <Label
-                            Text="{Binding Title}"
+                            Text="{Binding RestaurantName}"
                             FontSize="Title"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding Subtitle}"
+                            Text="{Binding RestaurantDescription}"
                             FontSize="Subtitle"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding ContentAsString}"
+                            Text="{Binding Review}"
                             FontSize="Body"
                             Margin="10,5" />
 
@@ -71,17 +71,17 @@
                     <StackLayout>
 
                         <Label
-                            Text="{Binding Title}"
+                            Text="{Binding RestaurantName}"
                             FontSize="Title"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding Subtitle}"
+                            Text="{Binding RestaurantDescription}"
                             FontSize="Subtitle"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding ContentAsString}"
+                            Text="{Binding Review}"
                             FontSize="Body"
                             Margin="10,5" />
 
@@ -104,17 +104,17 @@
                     <StackLayout>
 
                         <Label
-                            Text="{Binding Title}"
+                            Text="{Binding RestaurantName}"
                             FontSize="Title"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding Subtitle}"
+                            Text="{Binding RestaurantDescription}"
                             FontSize="Subtitle"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding ContentAsString}"
+                            Text="{Binding Review}"
                             FontSize="Body"
                             Margin="10,5" />
 
@@ -136,17 +136,17 @@
                     <StackLayout>
 
                         <Label
-                            Text="{Binding Title}"
+                            Text="{Binding RestaurantName}"
                             FontSize="Title"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding Subtitle}"
+                            Text="{Binding RestaurantDescription}"
                             FontSize="Subtitle"
                             Margin="10,5" />
 
                         <StackLayout
-                            BindableLayout.ItemsSource="{Binding ContentAsList}">
+                            BindableLayout.ItemsSource="{Binding Reviews}">
 
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate
@@ -180,17 +180,17 @@
                     <StackLayout>
 
                         <Label
-                            Text="{Binding Title}"
+                            Text="{Binding RestaurantName}"
                             FontSize="Title"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding Subtitle}"
+                            Text="{Binding RestaurantDescription}"
                             FontSize="Subtitle"
                             Margin="10,5" />
 
                         <Label
-                            Text="{Binding ContentAsString}"
+                            Text="{Binding Review}"
                             FontSize="Body"
                             Margin="10,5" />
 
@@ -212,45 +212,6 @@
         </DataTemplate>
 
         <DataTemplate
-            x:Key="CardWithIsVisible"
-            x:DataType="models:Data">
-
-            <ContentView>
-                <controls:Card
-                    Margin="0,0,0,15">
-
-                    <StackLayout>
-
-                        <Label
-                            Text="{Binding Title}"
-                            FontSize="Title"
-                            Margin="10,5" />
-
-                        <Label
-                            Text="{Binding Subtitle}"
-                            FontSize="Subtitle"
-                            Margin="10,5" />
-
-                        <Label
-                            Text="{Binding ContentAsString}"
-                            FontSize="Body"
-                            Margin="10,5" />
-
-                        <Label
-                            IsVisible="{Binding ShowConditionalContent}"
-                            Text="{Binding ConditionalContent}"
-                            FontAttributes="Italic"
-                            FontSize="Body"
-                            Margin="10,5" />
-
-                    </StackLayout>
-
-                </controls:Card>
-            </ContentView>
-
-        </DataTemplate>
-
-        <DataTemplate
             x:Key="CardWithGrid"
             x:DataType="models:Data">
 
@@ -264,24 +225,24 @@
 
                         <Label
                             Grid.Column="0"
-                            Text="{Binding Category}"
+                            Text="{Binding Rating}"
                             VerticalOptions="Center" />
 
                         <StackLayout
                             Grid.Column="1">
 
                             <Label
-                                Text="{Binding Title}"
+                                Text="{Binding RestaurantName}"
                                 FontSize="Title"
                                 Margin="10,5" />
 
                             <Label
-                                Text="{Binding Subtitle}"
+                                Text="{Binding RestaurantDescription}"
                                 FontSize="Subtitle"
                                 Margin="10,5" />
 
                             <Label
-                                Text="{Binding ContentAsString}"
+                                Text="{Binding Review}"
                                 FontSize="Body"
                                 Margin="10,5" />
 
@@ -310,24 +271,24 @@
 
                         <Label
                             Grid.Column="0"
-                            Text="{Binding Category}"
+                            Text="{Binding Rating}"
                             VerticalOptions="Center" />
 
                         <StackLayout
                             Grid.Column="1">
 
                             <Label
-                                Text="{Binding Title}"
+                                Text="{Binding RestaurantName}"
                                 FontSize="Title"
                                 Margin="10,5" />
 
                             <Label
-                                Text="{Binding Subtitle}"
+                                Text="{Binding RestaurantDescription}"
                                 FontSize="Subtitle"
                                 Margin="10,5" />
 
                             <StackLayout
-                                BindableLayout.ItemsSource="{Binding ContentAsList}">
+                                BindableLayout.ItemsSource="{Binding Reviews}">
 
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate
@@ -342,13 +303,6 @@
                                 </BindableLayout.ItemTemplate>
 
                             </StackLayout>
-
-                            <Label
-                                IsVisible="{Binding ShowConditionalContent}"
-                                Text="{Binding ConditionalContent}"
-                                FontAttributes="Italic"
-                                FontSize="Body"
-                                Margin="10,5" />
 
                             <Label
                                 Text="Tap me anywhere"
@@ -369,6 +323,15 @@
 
         </DataTemplate>
 
+        <DataTemplate
+            x:Key="CardWithComplexContent"
+            x:DataType="models:Data">
+
+            <controls:ComplexCard
+                Source="{Binding}" />
+
+        </DataTemplate>
+
         <viewModels:MyDataTemplateSelector
             x:Key="MyDataTemplateSelector"
             Card="{StaticResource Card}"
@@ -376,9 +339,9 @@
             CardWithCornerRadius="{StaticResource CardWithCornerRadius}"
             CardWithBindableLayout="{StaticResource CardWithBindableLayout}"
             CardWithTapGesture="{StaticResource CardWithTapGesture}"
-            CardWithIsVisible="{StaticResource CardWithIsVisible}"
             CardWithGrid="{StaticResource CardWithGrid}"
-            CardWithTheLot="{StaticResource CardWithTheLot}" />
+            CardWithTheLot="{StaticResource CardWithTheLot}"
+            CardWithComplexContent="{StaticResource CardWithComplexContent}" />
 
     </ContentPage.Resources>
     

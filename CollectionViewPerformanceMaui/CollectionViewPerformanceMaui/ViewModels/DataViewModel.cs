@@ -12,31 +12,34 @@ namespace CollectionViewPerformanceMaui.ViewModels
 
 		public DataTemplate? CardWithShadow { get; set; }
 
-		public DataTemplate? CardWithCornerRadius { get; set; }
+        public DataTemplate? CardWithElevation { get; set; }
+
+        public DataTemplate? CardWithCornerRadius { get; set; }
 
 		public DataTemplate? CardWithBindableLayout { get; set; }
 
 		public DataTemplate? CardWithTapGesture { get; set; }
 
-		public DataTemplate? CardWithIsVisible { get; set; }
-
 		public DataTemplate? CardWithGrid { get; set; }
 
 		public DataTemplate? CardWithTheLot { get; set; }
 
-		protected override DataTemplate? OnSelectTemplate(object item, BindableObject container)
+        public DataTemplate? CardWithComplexContent { get; set; }
+
+        protected override DataTemplate? OnSelectTemplate(object item, BindableObject container)
 		{
-			return ((Data)item).Template switch
-			{
-				Template.Card => this.Card,
+            return ((Data)item).Template switch
+            {
+                Template.Card => this.Card,
 				Template.CardWithShadow => this.CardWithShadow,
+				Template.CardWithElevation => this.CardWithElevation,
 				Template.CardWithCornerRadius => this.CardWithCornerRadius,
 				Template.CardWithBindableLayout => this.CardWithBindableLayout,
 				Template.CardWithTapGesture => this.CardWithTapGesture,
-				Template.CardWithIsVisible => this.CardWithIsVisible,
 				Template.CardWithGrid => this.CardWithGrid,
 				Template.CardWithTheLot => this.CardWithTheLot,
-				_ => null
+				Template.CardWithComplexContent => this.CardWithComplexContent,
+                _ => null
 			};
 		}
 	}
@@ -54,19 +57,19 @@ namespace CollectionViewPerformanceMaui.ViewModels
 
 		public ObservableRangeCollection<Data> Data { get; set; } = new();
 
-		public string CurrentTemplate
-			=> this.Data.FirstOrDefault()?.Template.ToString()
-			?? "Unknown";
+        public string CurrentTemplate
+            => this.Data.FirstOrDefault()?.Template.ToString()
+            ?? "Unknown";
 
-		public async Task InitialiseAsync()
+        public async Task InitialiseAsync()
 		{
 			var data = await this.dataService.GetData();
 
 			this.Data.AddRange(data);
 
-			this.OnPropertyChanged(nameof(CurrentTemplate));
+            this.OnPropertyChanged(nameof(CurrentTemplate));
 
-			this.IsBusy = false;
+            this.IsBusy = false;
 		}
 
 		[RelayCommand]
@@ -96,10 +99,10 @@ namespace CollectionViewPerformanceMaui.ViewModels
 
 			this.Data.ReplaceRange(data);
 
-			this.OnPropertyChanged(nameof(CurrentTemplate));
-		}
+            this.OnPropertyChanged(nameof(CurrentTemplate));
+        }
 
-		[RelayCommand]
+        [RelayCommand]
 		private async Task OpenTapAlert()
 		{
 			if (Application.Current?.MainPage is null)

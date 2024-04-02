@@ -6,14 +6,16 @@ namespace CollectionViewPerformanceXamarin.Controls
 	{
 		public Card() : base()
 		{
-			this.BackgroundColor = Color.White;
+			this.IsClippedToBounds = true;
+
+            this.BackgroundColor = Color.White;
 
 			this.Padding = 15;
 
 			this.HasShadow = false;
 		}
 
-		public static readonly BindableProperty HasCornerRadiusProperty = BindableProperty.Create(nameof(HasCornerRadius), typeof(bool), typeof(Label), false, BindingMode.OneTime, propertyChanged: (bindable, oldValue, newValue) =>
+		public static readonly BindableProperty HasCornerRadiusProperty = BindableProperty.Create(nameof(HasCornerRadius), typeof(bool), typeof(Card), false, BindingMode.OneTime, propertyChanged: (bindable, oldValue, newValue) =>
 		{
 			if ((bool)newValue)
 			{
@@ -21,10 +23,10 @@ namespace CollectionViewPerformanceXamarin.Controls
 			}
 		});
 
-		public bool HasCornerRadius
+        public bool HasCornerRadius
 		{
 			get => (bool)GetValue(HasCornerRadiusProperty);
 			set => SetValue(HasCornerRadiusProperty, value);
 		}
-	}
+    }
 }

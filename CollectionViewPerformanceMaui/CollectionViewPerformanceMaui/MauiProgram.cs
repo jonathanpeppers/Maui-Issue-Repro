@@ -2,9 +2,14 @@
 using CollectionViewPerformanceMaui.ViewModels;
 using CollectionViewPerformanceMaui.Views;
 
+#if ANDROID
+using CollectionViewPerformanceMaui.Controls;
+using CollectionViewPerformanceMaui.Platforms.Android.Handlers;
+#endif
+
 namespace CollectionViewPerformanceMaui
 {
-	public static class MauiProgram
+    public static class MauiProgram
 	{
 		public static MauiApp CreateMauiApp()
 		{
@@ -16,7 +21,16 @@ namespace CollectionViewPerformanceMaui
 				{
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-				})
+					fonts.AddFont("FontAwesomeBrands.otf", "FA-B");
+                })
+				.ConfigureMauiHandlers(handlers =>
+				{
+#if ANDROID
+					handlers.AddHandler<Card, CardHandler>();
+
+					CardHandler.SetupMapper();
+#endif
+                })
 				.RegisterServices()
 				.RegisterViewModels()
 				.RegisterViews();
@@ -44,5 +58,5 @@ namespace CollectionViewPerformanceMaui
 
 			return mauiAppBuilder;
 		}
-	}
+    }
 }

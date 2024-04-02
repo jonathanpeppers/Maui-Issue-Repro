@@ -2,17 +2,17 @@
 {
 	public enum Template
 	{
-		// Baseline
-		Card,
+		Card, // Baseline
 
-		CardWithShadow,
-		CardWithCornerRadius,
+        CardWithShadow,
+        CardWithElevation, // Android only
+        CardWithCornerRadius,
 		CardWithBindableLayout,
 		CardWithTapGesture,
-		CardWithIsVisible,
 		CardWithGrid,
 
-		// Worst case scenario
-		CardWithTheLot,
-	}
+		CardWithTheLot, // Worst case scenario
+
+		CardWithComplexContent
+    }
 }
