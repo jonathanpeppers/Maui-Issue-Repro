@@ -16,4 +16,4 @@ CollectionViewPerformanceMaui
 
 CollectionViewPerformanceXamarin
 
-[Issue to be created]
+[[iOS/Android] CollectionView scrolling performance worse in .NET MAUI when compared to Xamarin,Forms (lag/stutter)](https://github.com/dotnet/maui/issues/21580)
