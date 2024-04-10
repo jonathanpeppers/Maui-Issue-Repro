@@ -99,10 +99,9 @@
                 </Grid>
 
                 <VerticalStackLayout
-                    BindableLayout.ItemsSource="{Binding Source.Reviews, Source={x:Reference this}}"
                     Spacing="10">
 
-                    <BindableLayout.ItemTemplate>
+                    <!--<BindableLayout.ItemTemplate>
                         <DataTemplate
                             x:DataType="x:String">
 
@@ -143,7 +142,7 @@
                             </Border>
 
                         </DataTemplate>
-                    </BindableLayout.ItemTemplate>
+                    </BindableLayout.ItemTemplate>-->
 
                 </VerticalStackLayout>
 

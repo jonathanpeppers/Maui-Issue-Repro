@@ -16,13 +16,13 @@ namespace CollectionViewPerformanceMaui.Controls
 		{
 			if ((bool)newValue)
 			{
-				((Card)bindable).Shadow = new Shadow
-				{
-					Brush = Colors.Black,
-					Opacity = 0.5f,
-					Offset = new Point(2, 2),
-					Radius = 4
-				};
+				// ((Card)bindable).Shadow = new Shadow
+				// {
+				// 	Brush = Colors.Black,
+				// 	Opacity = 0.5f,
+				// 	Offset = new Point(2, 2),
+				// 	Radius = 4
+				// };
 			}
 		});
 
